@@ -8,17 +8,13 @@ public class Ship : MonoBehaviour
 
     private GameObject bulletPrefab;
     private Transform bulletContainer;
+    private Transform turret;
 
     void Awake()
     {
         bulletPrefab = Resources.Load<GameObject>("Prefabs/Bullet");
         bulletContainer = GameObject.Find("BulletContainer").transform;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
+        turret = transform.Find("TurretRotator");
     }
 
     // Update is called once per frame
@@ -31,10 +27,10 @@ public class Ship : MonoBehaviour
         }
     }
 
-
     private void Fire()
     {
         GameObject newBullet = Instantiate(bulletPrefab, bulletContainer, true);
-        newBullet.transform.position = transform.position;
+        newBullet.transform.position = turret.position;
+        newBullet.transform.rotation = turret.rotation;
     }
 }

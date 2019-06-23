@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     public float lifetime = 2.0f;
     public float speed = 20.0f;
 
-
     void Awake()
     {
         // Destroys the bullet after an specified time
